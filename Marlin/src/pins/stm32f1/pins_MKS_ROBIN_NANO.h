@@ -92,16 +92,10 @@
 // Heaters / Fans
 //
 #ifndef HEATER_0_PIN
-  #define HEATER_0_PIN                      PC3
+  #define HEATER_0_PIN                      PB0 //hack - swith to another pin coz mine hotend0 connection terminal is broken
 #endif
-#if HOTENDS == 1
-  #ifndef FAN1_PIN
-    #define FAN1_PIN                        PB0
-  #endif
-#else
-  #ifndef HEATER_1_PIN
-    #define HEATER_1_PIN                    PB0
-  #endif
+#if HOTENDS > 1
+  #error "Hack: Yarik's Saphire Pro has broken connector for HEATER_0, so it uses HEATER_1 pin instead of 0, so only one hotend possible!"
 #endif
 #ifndef FAN_PIN
   #define FAN_PIN                           PB1   // FAN
