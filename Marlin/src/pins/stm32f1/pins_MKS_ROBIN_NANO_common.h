@@ -110,7 +110,7 @@
 // Heaters / Fans
 //
 #ifndef HEATER_0_PIN
-  #define HEATER_0_PIN                      PC3
+  #define HEATER_0_PIN                      PB0 //hack - swith to another pin coz mine hotend0 connection terminal is broken
 #endif
 #ifndef FAN0_PIN
   #define FAN0_PIN                          PB1   // FAN
@@ -119,12 +119,12 @@
   #define HEATER_BED_PIN                    PA0
 #endif
 
-#if HOTENDS == 1 && DISABLED(HEATERS_PARALLEL)
-  #ifndef FAN1_PIN
-    #define FAN1_PIN                        PB0
-  #endif
-#elif !defined(HEATER_1_PIN)
-  #define HEATER_1_PIN                      PB0
+//precautions due to overriden HEATER_0_PIN to PB0
+#if defined FAN1_PIN || defined HEATER_1_PIN
+  #error "Hack: Yarik's Saphire Pro has broken connector for HEATER_0, so it uses HEATER_1 pin (PB0) instead of 0, so HEATER_1 or FAN1 needs manual and carefull config!"
+#endif
+#if HOTENDS > 1
+  #error "Hack: Yarik's Saphire Pro has broken connector for HEATER_0, so it uses HEATER_1 pin (PB0) instead of 0, so 2nd hotend needs manual and carefull config!"
 #endif
 
 //
