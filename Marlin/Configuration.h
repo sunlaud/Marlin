@@ -748,7 +748,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-//values from Saphire Pro stock config file
+//values from Saphire Pro stock config file (though E was calibrated to 406 steps/mm)
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.3, 80.3, 1600, 412}
 
 /**
