@@ -769,11 +769,12 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 3000, 2000, 200, 10000 }
+ //limit max E acceleration due to lin advance which buzzes extruder (https://blog.technican.ru/all/pro-linear-advance-v-marlin/)
+#define DEFAULT_MAX_ACCELERATION      { 3000, 2000, 200, 5000 }
 
 #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 6000, 4000, 400, 20000 } // ...or, set your own edit limits
+  #define MAX_ACCEL_EDIT_VALUES       { 6000, 4000, 400, 10000 } // ...or, set your own edit limits
 #endif
 
 /**
