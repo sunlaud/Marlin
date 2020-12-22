@@ -3231,8 +3231,8 @@
   #define USER_SCRIPT_AUDIBLE_FEEDBACK
   //#define USER_SCRIPT_RETURN  // Return to status screen after a script
 
-  #define USER_DESC_1 "Home & UBL Info"
-  #define USER_GCODE_1 "G28\nG29 W"
+  #define USER_DESC_1 "Bed 50mm down for service"
+  #define USER_GCODE_1 "G0 Z50"
 
   #define USER_DESC_2 "Preheat for " PREHEAT_1_LABEL
   #define USER_GCODE_2 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
@@ -3240,11 +3240,11 @@
   #define USER_DESC_3 "Preheat for " PREHEAT_2_LABEL
   #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
 
-  #define USER_DESC_4 "Heat Bed/Home/Level"
-  #define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
+  #define USER_DESC_4 "Home, Leveling=on, Endstops=off"
+  #define USER_GCODE_4 "G28\nM420 S1\nM121"
 
-  #define USER_DESC_5 "Home XY & Draw Square"
-  #define USER_GCODE_5 "G28 X Y\nG0 F6000\nG0 X20 Y200\nG0 X200 Y200\nG0 X200 Y20\nG0 X20 Y20\nG0 X20 Y200\nG0 X110 Y110"
+  #define USER_DESC_5 "Endstops on"
+  #define USER_GCODE_5 "M120"
 
 #endif
 
