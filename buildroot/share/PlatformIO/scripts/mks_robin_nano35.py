@@ -2,9 +2,13 @@ import os
 Import("env")
 
 # Relocate firmware from 0x08000000 to 0x08007000
+found_define = None
 for define in env['CPPDEFINES']:
     if define[0] == "VECT_TAB_ADDR":
-        env['CPPDEFINES'].remove(define)
+        found_define = define
+        break        
+if found_define:
+    env['CPPDEFINES'].remove(found_define)
 env['CPPDEFINES'].append(("VECT_TAB_ADDR", "0x08007000"))
 
 custom_ld_script = os.path.abspath("buildroot/share/PlatformIO/ldscripts/mks_robin_nano.ld")
